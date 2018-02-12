@@ -4,3 +4,9 @@ Some documents apply specifically to Linux environment. The equivalent for other
 
 # Linux  
 Practicalities related documents can be found [here](Linux).  
+
+# Git and Github  
+Practicalities related documents can be found [here](Git_Github).
+
+# PostgreSQL
+Practicalities related documents can be found [here](PostgreSQL).
