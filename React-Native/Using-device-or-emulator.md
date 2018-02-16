@@ -8,9 +8,11 @@ ADB server didn't ACK
 * failed to start daemon *
 error: cannot connect to daemon
 ```  
+or  
 ```  
 adb server is out of date. killing
 ```  
+or client app cannot connect to backend.  
 
 # Main reasons and solutions    
 ## 1
@@ -19,7 +21,8 @@ Solution: save `<PATH>/adb` to global environment variable.
 Notice:  
 - There are 2 paths for adb: `/home/user/Android/Sdk/platform-tools/` and `/usr/bin/`.  
 - Either is fine, but preferable the first one.  
-Run  
+
+Run:  
 `adb kill-server` to kill the running server.  
 `adb start-server` to restart the adb server.  
 Notice: for every emulator or device running/ connecting to the computer, an adb instance will run automatically.  
@@ -36,6 +39,15 @@ sudo cp platform-tools/fastboot /usr/bin/fastboot
 ```  
 then run `adb version` to check the update.  
 
+## Client app cannot connect to backend  
+By default, React Native listen to default port 8081.  
+Run `adb reverse <local> <remote>` to to reverse network connections from the device
+to the host.
+In my case, we run `adb reverse tcp:3888 tcp:3888`, with 3888 is the port our backend is listening to.  
+After that, run `npm run android`.  
+
 # Source  
 https://androideputies.com/2016/12/11/linux-update-adb-fastboot-to-the-latest-version/  
 https://developer.android.com/studio/releases/platform-tools.html  
+https://www.reddit.com/r/reactnative/comments/5etpqw/what_do_you_call_what_adb_reverse_is_doing/  
+https://gitlab.com/pbeeler/system_core/commit/252586941934d23073a8d167ec240b221062505f  
