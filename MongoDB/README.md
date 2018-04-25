@@ -28,3 +28,9 @@ This is for Ubuntu environment, other environments may differ.
 ## Using mongoDB shell
 
 > mongo --host 127.0.0.1:27017
+
+# Shell command  
+
+[Quick guide for frequently used commands](Shell-command.md)
+
+Full documentation: [official mongoDB Shell guide](https://docs.mongodb.com/manual/mongo/)
